@@ -38,22 +38,41 @@ end
 
 ## players
 
-# get('users') do
+# #get('/users') do
+#   erb(:users_list)
+# end
+#
+# get('/user/:id') do
+#   erb(:user_show)
+# end
+#
+# #create
+# get('/user/:id/new') do
+#   erb(:user_show)
+# end
+#
+# post('/user/create') do
 #
 # end
 #
-# get('user/:id') do
+# #edit
+# get('/user/:id/edit') do
 #
 # end
 #
-# post('user/create') do
-#
+# patch('/user/:id/edit') do
+#   erb(:users_list)
 # end
 #
-# patch('user/:id') do
-#
+# #delete
+# delete('/user/:id') do
+#     erb(:users_list)
 # end
+
+# 1 get two random users from db
 #
-# delete('user/:id') do
+# 2 inject info into erb
 #
-# end
+# 3 on submit update score and counter for player
+#
+# 4 redirect / reload page with new records
