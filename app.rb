@@ -67,9 +67,9 @@ end
    erb(:players_new)
   end
 
-get('/players/create') do
-  Player.create(name: params['player_name'])
-  erb(:players_new)
+post('/players/create') do
+  @player = Player.create(player_name: params['player_name'])
+  redirect "players/#{@player.id}/quiz_1"
 end
 #
 # #edit
@@ -77,14 +77,24 @@ end
 #
 # end
 #
-# patch('/user/:id/edit') do
-#   erb(:users_list)
-# end
+ patch('/user/:id/edit') do
+   erb(:users_list)
+ end
 #
 # #delete
 # delete('/user/:id') do
 #     erb(:users_list)
 # end
+
+
+#Quiz stuff
+
+get('/players/:id/quiz_1') do
+  erb(:quiz_1)
+end
+
+
+
 
 # 1 get two random users from db
 #
