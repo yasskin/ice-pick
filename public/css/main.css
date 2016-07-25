@@ -58,7 +58,9 @@ table {
 body {
   width: 100vw;
   height: 100vh;
-  display: flex; }
+  display: flex;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: snow; }
 
 header {
   display: flex;
@@ -92,11 +94,33 @@ form {
 
 input {
   font-size: 1em;
-  width: 7em;
-  height: 2em;
-  border-radius: 0.2em; }
+  border-radius: 0.3em;
+  border: 1px solid #111;
+  background: transparent;
+  width: 150px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none; }
 
-input:focus {
+input:focus, select:focus {
+  border: 2px solid darkgrey; }
+
+select {
+  border: 1px solid #111;
+  background: transparent;
+  width: 150px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   outline: none; }
 
 .index-button-to-quiz, .start-quiz-button, .next {
@@ -108,7 +132,8 @@ input:focus {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 1em; }
+  margin-top: 1em;
+  font-size: 1em; }
 
 .index-button-to-profile, #submit-form {
   width: 175px;
@@ -119,7 +144,11 @@ input:focus {
   border-radius: 3px;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-size: 1em; }
+
+h1 {
+  font-size: 1.5em; }
 
 .picture {
   width: 30em;
@@ -134,6 +163,7 @@ input:focus {
   width: 80%;
   margin: 0 auto; }
   .quiz-container h2, .result-container h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
     padding: 3%;
     font-size: 1.5em; }
@@ -149,8 +179,5 @@ input:focus {
   .result-container p {
     font-size: 1.5em;
     line-height: 2em; }
-
-h1 {
-  font-size: 1.5em; }
 
 /*# sourceMappingURL=main.css.map */

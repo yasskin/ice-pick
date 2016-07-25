@@ -12,11 +12,14 @@ form {
 
 input {
   font-size: 1em;
-  width: 7em;
-  height: 2em;
-  border-radius: 0.2em;
+  border-radius: 0.3em;
+  @include form-styles();
 }
 
-input:focus {
-  outline: none;
+input:focus, select:focus {
+  border: 2px solid darkgrey;
+}
+
+select {
+    @include form-styles();
 }
