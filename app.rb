@@ -65,7 +65,12 @@ end
 #
   get('/players/new') do
    erb(:players_new)
- end
+  end
+
+get('/players/create') do
+  Player.create(name: params['player_name'])
+  erb(:players_new)
+end
 #
 # #edit
 # get('/user/:id/edit') do
