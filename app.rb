@@ -6,7 +6,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file}
 #reloader
 
 get('/users') do
-  erb(:users_list)
+  erb(:user_new)
 end
 
 get('/user/:id') do
@@ -14,11 +14,11 @@ get('/user/:id') do
 end
 
 #create
-get('/user/:id/new') do
-  erb(:user_show)
+get('/users/new') do
+  erb(:user_new)
 end
 
-post('/user/create') do
+post('/users/create') do
 
 end
 
@@ -48,7 +48,7 @@ end
 #
 # #create
 # get('/user/:id/new') do
-#   erb(:user_show)
+#   erb(:user_new)
 # end
 #
 # post('/user/create') do
