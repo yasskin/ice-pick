@@ -3,57 +3,93 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file}
 
-#reloader
+get('/')do
+  erb(:index)
+end
+
+#read
 
 get('/users') do
+  @users = User.all()
   erb(:users_list)
 end
 
 get('/user/:id') do
+  @user = User.find(params['id'])
   erb(:user_show)
 end
 
 #create
-get('/user/:id/new') do
-  erb(:user_show)
+
+get('/users/new') do
+  erb(:user_new)
 end
 
-post('/user/create') do
-
+post('/users/create') do
+  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'])
+  erb(:user_success)
 end
 
 #edit
 get('/user/:id/edit') do
-
+  @user = User.find(params['id'])
+  erb(:user_edit)
 end
 
-patch('/user/:id/edit') do
-  erb(:users_list)
+patch('/user/:id') do
+  @user = User.find(params['id'])
+  @user.update(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'])
+  redirect "user/#{@user.id}"
 end
 
 #delete
 delete('/user/:id') do
-    erb(:users_list)
+  @user = User.find(params['id']).destroy()
+  redirect :users
 end
 
 ## players
 
-# get('users') do
+# #get('/users') do
+#   erb(:users_list)
+# end
+#
+# get('/user/:id') do
+#   erb(:user_show)
+# end
+#
+# #create
+# get('/user/:id/new') do
+#   erb(:user_new)
+# end
+#
+  get('/players/new') do
+   erb(:players_new)
+  end
+
+get('/players/create') do
+  Player.create(name: params['player_name'])
+  erb(:players_new)
+end
+#
+# #edit
+# get('/user/:id/edit') do
 #
 # end
 #
-# get('user/:id') do
-#
+# patch('/user/:id/edit') do
+#   erb(:users_list)
 # end
 #
-# post('user/create') do
-#
+# #delete
+# delete('/user/:id') do
+#     erb(:users_list)
 # end
+
+# 1 get two random users from db
 #
-# patch('user/:id') do
+# 2 inject info into erb
 #
-# end
+# 3 on submit update score and counter for player
 #
-# delete('user/:id') do
-#
-# end
+# 4 redirect / reload page with new records

@@ -1,0 +1,23 @@
+.index-button-to-quiz, .start-quiz-button, .next {
+  width: 175px;
+  height: 50px;
+  background-color: tomato;
+  border: 1px solid tomato;
+  border-radius: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1em;
+}
+
+.index-button-to-profile, #submit-form {
+  width: 175px;
+  height: 50px;
+  margin-top: 1em;
+  background-color: steelblue;
+  border: 1px solid steelblue;
+  border-radius: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
