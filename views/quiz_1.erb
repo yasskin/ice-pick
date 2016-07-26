@@ -4,5 +4,18 @@
     <div class="picture"></div>
     <div class="picture"></div>
   </div>
-  <a href="quiz2.html"><button class="next" type="button" name="button">Next</button></a>
+
+  <form class="" action="/player/<%=@player.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="answer" value="-2">
+    <button type="submit" name="button">True</button>
+  </form>
+
+  <form class="" action="/player/<%=@player.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="answer" value="+2">
+    <button type="submit" name="button">False</button>
+  </form>
 </div>
+
+<h1>score <%=@player.score%></h1>

@@ -67,24 +67,74 @@ end
    erb(:players_new)
   end
 
-get('/players/create') do
-  Player.create(name: params['player_name'])
-  erb(:players_new)
+post('/players/create') do
+  @player = Player.create(player_name: params['player_name'], counter: 1, score: 0)
+  redirect "players/#{@player.id}/quiz_1"
 end
+
 #
-# #edit
-# get('/user/:id/edit') do
 #
-# end
 #
-# patch('/user/:id/edit') do
-#   erb(:users_list)
-# end
-#
-# #delete
-# delete('/user/:id') do
-#     erb(:users_list)
-# end
+ patch('/player/:id') do
+   @player = Player.find(params['id'])
+   score = @player.score
+   counter = @player.counter
+   counter += 1
+   score += params['answer'].to_i
+   @player.update(score: score, counter: counter)
+   if @player.counter > 6
+     redirect "players/#{@player.id}/result"
+   else
+     redirect "/players/#{@player.id}/quiz_#{counter}"
+   end
+ end
+
+#Quiz stuff
+
+get('/players/:id/quiz_1') do
+  @player = Player.find(params['id'])
+  erb(:quiz_1)
+end
+
+get('/players/:id/quiz_2') do
+  @player = Player.find(params['id'])
+  erb(:quiz_2)
+end
+
+get('/players/:id/quiz_3') do
+  @player = Player.find(params['id'])
+  erb(:quiz_3)
+end
+
+get('/players/:id/quiz_4') do
+  @player = Player.find(params['id'])
+  erb(:quiz_4)
+end
+
+get('/players/:id/quiz_5') do
+  @player = Player.find(params['id'])
+  erb(:quiz_5)
+end
+
+get('/players/:id/quiz_6') do
+  @player = Player.find(params['id'])
+  erb(:quiz_6)
+end
+
+get('/players/:id/result') do
+  @player = Player.find(params['id'])
+  erb(:result)
+end
+
+post('/player/:id/reset') do
+  @player = Player.find(params['id'])
+  @player.update(counter: 1, score: 0)
+  redirect "players/#{@player.id}/quiz_1"
+end
+
+
+
+
 
 # 1 get two random users from db
 #
