@@ -4,6 +4,8 @@
 <br>
 <h6><%= @user.last_name %></h6>
 
+<img src="<%=@user.photo%>" alt="picture of user" />
+
 <a href="/user/<%=@user.id%>/edit">Edit User</a>
 
 <form class="delete" action="/user/<%=@user.id%>" method="post">
