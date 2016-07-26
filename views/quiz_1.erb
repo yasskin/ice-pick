@@ -1,8 +1,21 @@
 <div class="quiz-container">
-  <h2>Which person is Marty?</h2>
+  <h2>Which person is <%=@user_1.first_name%></h2>
   <div class="quiz-pictures">
-    <div class="picture"></div>
-    <div class="picture"></div>
+    <div class="picture">
+      <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="answer" value="-2">
+        <button type="submit" name="button">This Human</button>
+      </form>
+    </div>
+    <div class="picture">
+      <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="answer" value="+2">
+        <button type="submit" name="button">This Human</button>
+      </form>
+    </div>
   </div>
-  <a href="quiz2.html"><button class="next" type="button" name="button">Next</button></a>
 </div>
+
+<h1>score <%=@player.score%></h1>

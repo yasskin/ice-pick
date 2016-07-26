@@ -1,4 +1,4 @@
-.index-button-to-quiz, .start-quiz-button, .next {
+.index-button-to-quiz, .start-quiz-button, .next, .go-back {
   width: 175px;
   height: 50px;
   background-color: tomato;
@@ -8,9 +8,10 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 1em;
+  font-size: 1em;
 }
 
-.index-button-to-profile, #submit-form {
+.index-button-to-profile, .new-user-submit {
   width: 175px;
   height: 50px;
   margin-top: 1em;
@@ -20,4 +21,5 @@
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 1em;
 }
