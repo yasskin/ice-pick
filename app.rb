@@ -93,13 +93,13 @@ end
 
 get('/players/:id/quiz_1') do
 
-  prng = Random.new
-  rand_int = prng.rand(User.first.id..User.last.id)
-  @user_1 = User.find(rand_int)
-
-  prng = Random.new
-  rand_int = prng.rand(User.first.id..User.last.id)
-  @user_2 = User.find(rand_int)
+  # prng = Random.new
+  # rand_int = prng.rand(User.first.id..User.last.id)
+  # @user_1 = User.find(rand_int)
+  #
+  # prng = Random.new
+  # rand_int = prng.rand(User.first.id..User.last.id)
+  # @user_2 = User.find(rand_int)
 
   # rand_int = rand(User.count)
   # @user_2 = User.find(rand_int)
