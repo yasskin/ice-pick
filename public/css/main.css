@@ -280,6 +280,35 @@ select {
     -webkit-transform: rotate(-720deg); }
   0% {
     -webkit-transform: rotate(0deg); } }
+.nametag-container {
+  position: relative;
+  margin: 10px auto;
+  width: 450px;
+  height: 322px;
+  z-index: 1; }
+
+.nametag-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-animation: cardFlip 2.5s linear infinite; }
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; }
+
+.face.back {
+  display: block;
+  transform: rotateX(180deg);
+  box-sizing: border-box; }
+
+@keyframes cardFlip {
+  100% {
+    -webkit-transform: rotateX(180deg); }
+  0% {
+    -webkit-transform: rotateX(0deg); } }
 h1 {
   font-size: 1.5em; }
 
