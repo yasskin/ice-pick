@@ -281,6 +281,7 @@ select {
   0% {
     -webkit-transform: rotate(0deg); } }
 .nametag-container {
+  margin-top: 5%;
   position: relative;
   margin: 10px auto;
   width: 450px;
