@@ -5,7 +5,7 @@
       <div class="picture"></div>
       <div class="picture"></div>
     </div>
-    
+
   <form class="" action="/player/<%=@player.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="answer" value="-2">
@@ -17,6 +17,16 @@
     <input type="hidden" name="answer" value="+2">
     <button type="submit" name="button">False</button>
   </form>
+  <h1>score <%=@player.score%></h1>
+  <div class="burger">
+    <div class="burger-layers">
+      <img src="/img/burger.png" alt="burger... possibly vegan"/>
+    </div>
+    <div class="burger-bite1"></div>
+    <div class="burger-bite2"></div>
+    <div class="burger-bite3"></div>
+    <div class="burger-bite4"></div>
+    <div class="burger-bite5"></div>
+    <div class="burger-bite6"></div>
+  </div>
 </div>
-
-<h1>score <%=@player.score%></h1>

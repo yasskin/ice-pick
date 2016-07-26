@@ -1,0 +1,151 @@
+// burger animation
+.burger {
+  margin-top: 5%;
+  position: relative;
+  width: 497px;
+  height: 459px;
+}
+
+.burger-layers img {
+  position: absolute;
+}
+
+.burger-bite1, .burger-bite2, .burger-bite3, .burger-bite4, .burger-bite5, .burger-bite6 {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 250, 250, 1);
+  opacity: 0;
+}
+
+.burger-bite1, .burger-bite2, .burger-bite3 {
+  animation: burgerBite 100s;
+  animation-delay: 3s;
+}
+
+.burger-bite4, .burger-bite5, .burger-bite6 {
+  animation: burgerBite 99s;
+  animation-delay: 4s;
+}
+
+.burger-bite1 {
+  top: -8%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.burger-bite2 {
+  top: -11%;
+  left: 59%;
+  width: 300px;
+  height: 300px;
+}
+
+.burger-bite3 {
+  top: 38%;
+  left: 83%;
+  width: 150px;
+  height: 150px;
+}
+
+.burger-bite4 {
+  top: -10%;
+  left: 32%;
+  width: 175px;
+  height: 175px;
+}
+
+.burger-bite5 {
+  top: -23%;
+  left: 42%;
+  width: 380px;
+  height: 380px;
+}
+
+.burger-bite6 {
+  top: 38%;
+  left: 80%;
+  width: 175px;
+  height: 175px;
+}
+
+@keyframes burgerBite {
+  100% { opacity: 1; }
+  0.1%   { opacity: 1; }
+  0%   { opacity: 0; }
+}
+
+// toilet animation
+.toilet {
+  margin-top: 5%;
+  position: relative;
+  width: 281px;
+  height: 433px;
+}
+
+.toilet-bowl img {
+  position: absolute;
+}
+
+.toilet-flush img {
+  position: absolute;
+  top: 8%;
+  left: 3%;
+  -webkit-animation: flush 5s linear infinite;
+  -webkit-transform-origin: 80% 50% 0;
+  transform-origin: 80% 50% 0;
+}
+
+@-webkit-keyframes flush {
+  100% { -webkit-transform: rotate(0deg);}
+  95% { -webkit-transform: rotate(-23deg);}
+  5% { -webkit-transform: rotate(-45deg);}
+  0% { -webkit-transform: rotate(0deg);}
+}
+
+// bicycle animation
+.bicycle {
+  margin-top: 5%;
+  width: 794px;
+  height: 451px;
+  position: relative;
+}
+
+.bicycle-frame img {
+  position: absolute;
+  z-index: 500;
+}
+
+.bicycle-wheel-front img {
+  position: absolute;
+  top: 39%;
+  left: 0.05%;
+  z-index: 499;
+  -webkit-animation: rotate 3s linear infinite;
+}
+
+.bicycle-crank img {
+  position: absolute;
+  top: 68%;
+  left: 44%;
+  z-index: 501;
+  -webkit-animation: rotateCrank 2.5s linear infinite;
+}
+
+.bicycle-wheel-rear img {
+  position: absolute;
+  top: 39%;
+  left: 62.05%;
+  z-index: 499;
+  -webkit-animation: rotate 3s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  100% { -webkit-transform: rotate(-360deg);}
+  0% { -webkit-transform: rotate(0deg);}
+}
+
+@-webkit-keyframes rotateCrank {
+  100% { -webkit-transform: rotate(-720deg);}
+  0% { -webkit-transform: rotate(0deg);}
+}
