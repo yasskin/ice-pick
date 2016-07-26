@@ -26,7 +26,7 @@ get('/users/new') do
 end
 
 post('/users/create') do
-  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'])
+  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], height: params['height'], photo: params['photo'])
   erb(:user_success)
 end
 
@@ -92,17 +92,22 @@ end
 #Quiz stuff
 
 get('/players/:id/quiz_1') do
+  # @two_users = User.get_two_random_records()
+  @random_users = User.all.order('random()')
+  @user_1 = @random_users.sample
+  @user_2 = @random_users.sample
+  while(@user_1 == @user_2)
+    @user_2 = @random_users.sample
+  end
 
-  prng = Random.new
-  rand_int = prng.rand(User.first.id..User.last.id)
-  @user_1 = User.find(rand_int)
-
-  prng = Random.new
-  rand_int = prng.rand(User.first.id..User.last.id)
-  @user_2 = User.find(rand_int)
+  # prng = Random.new
+  # rand_int = prng.rand(User.first.id..User.last.id)
+  #
+  # prng = Random.new
+  # rand_int = prng.rand(User.first.id..User.last.id)
+  # @user_2 = User.find(rand_int)
 
   # rand_int = rand(User.count)
-  # @user_2 = User.find(rand_int)
 
   @player = Player.find(params['id'])
   erb(:quiz_1)
