@@ -26,7 +26,7 @@ get('/users/new') do
 end
 
 post('/users/create') do
-  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], height: params['height'], photo: params['photo'])
+  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], photo: params['photo'])
   erb(:user_success)
 end
 
@@ -38,7 +38,7 @@ end
 
 patch('/user/:id') do
   @user = User.find(params['id'])
-  @user.update(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'])
+  @user.update(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], photo: params['photo'])
   redirect "user/#{@user.id}"
 end
 
@@ -69,7 +69,7 @@ end
 
 post('/players/create') do
   @player = Player.create(player_name: params['player_name'], counter: 1, score: 0)
-  redirect "players/#{@player.id}/quiz_1"
+  redirect "players/#{@player.id}/quiz"
 end
 
 #
@@ -82,53 +82,97 @@ end
    counter += 1
    score += params['answer'].to_i
    @player.update(score: score, counter: counter)
+
+   page_id = Random.rand(Question.count) + 1
+
    if @player.counter > 6
      redirect "players/#{@player.id}/result"
    else
-     redirect "/players/#{@player.id}/quiz_#{counter}"
+     redirect "/players/#{@player.id}/quiz"
    end
  end
 
 #Quiz stuff
 
-get('/players/:id/quiz_1') do
-  # @two_users = User.get_two_random_records()
+get('/players/:id/quiz') do
+
+  @question = Question.all.sample()
+  topic = @question.topic()
+
   @random_users = User.all.order('random()')
   @user_1 = @random_users.sample
   @user_2 = @random_users.sample
 
-  while(@user_1 == @user_2)
+  while(@user_1 == @user_2 && @user_1.send(topic.to_sym) == @user_2.send(topic.to_sym))
     @user_2 = @random_users.sample
   end
 
   @player = Player.find(params['id'])
-  erb(:quiz_1)
+
+  @rand_num = Random.rand(20)
+  erb(:quiz)
 end
 
-get('/players/:id/quiz_2') do
-  @player = Player.find(params['id'])
-  erb(:quiz_2)
-end
+# get('/players/:id/quiz_2') do
+#   @rand_num = Random.rand(20)
+#   @random_users = User.all.order('random()')
+#   @user_1 = @random_users.sample
+#   @user_2 = @random_users.sample
+#
+#   while(@user_1 == @user_2)
+#     @user_2 = @random_users.sample
+#   end
+#
+#   @player = Player.find(params['id'])
+#
+#   erb(:quiz_2)
+# end
+#
+# get('/players/:id/quiz_3') do
+#   @rand_num = Random.rand(20)
+#   @random_users = User.all.order('random()')
+#   @user_1 = @random_users.sample
+#   @user_2 = @random_users.sample
+#
+#   while(@user_1 == @user_2)
+#     @user_2 = @random_users.sample
+#   end
+#
+#   @player = Player.find(params['id'])
+#
+#   erb(:quiz_3)
+# end
+#
+# get('/players/:id/quiz_4') do
+#   @rand_num = Random.rand(20)
+#   @random_users = User.all.order('random()')
+#   @user_1 = @random_users.sample
+#   @user_2 = @random_users.sample
+#
+#   while(@user_1 == @user_2)
+#     @user_2 = @random_users.sample
+#   end
+#
+#   @player = Player.find(params['id'])
+#
+#   erb(:quiz_4)
+# end
+#
+# get('/players/:id/quiz_5') do
+#   @rand_num = Random.rand(20)
+#   @random_users = User.all.order('random()')
+#   @user_1 = @random_users.sample
+#   @user_2 = @random_users.sample
+#
+#   while(@user_1 == @user_2)
+#     @user_2 = @random_users.sample
+#   end
+#
+#   @player = Player.find(params['id'])
+#
+#   erb(:quiz_5)
+# end
 
-get('/players/:id/quiz_3') do
-  @player = Player.find(params['id'])
-  erb(:quiz_3)
-end
-
-get('/players/:id/quiz_4') do
-  @player = Player.find(params['id'])
-  erb(:quiz_4)
-end
-
-get('/players/:id/quiz_5') do
-  @player = Player.find(params['id'])
-  erb(:quiz_5)
-end
-
-get('/players/:id/quiz_6') do
-  @player = Player.find(params['id'])
-  erb(:quiz_6)
-end
 
 get('/players/:id/result') do
   @player = Player.find(params['id'])

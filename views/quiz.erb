@@ -1,5 +1,5 @@
 <div class="quiz-container">
-<h2>Which person is taller?</h2>
+  <h2><%= @question.prompt() %>  </h2>
 <%if @rand_num.even? %>
 
 
@@ -7,6 +7,7 @@
     <div class="picture">
       <img src="<%=@user_2.photo()%>" alt="picture of user" />
       <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="attr" value="first_name">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="-2">
         <button type="submit" name="button">This Human</button>
@@ -15,6 +16,7 @@
     <div class="picture">
       <img src="<%=@user_1.photo()%>" alt="picture of user" />
       <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="attr" value="first_name">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="+2">
         <button type="submit" name="button">This Human</button>
@@ -30,6 +32,7 @@
     <div class="picture">
       <img src="<%=@user_1.photo()%>" alt="picture of user" />
       <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="attr" value="first_name">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="+2">
         <button type="submit" name="button">This Human</button>
@@ -38,6 +41,7 @@
     <div class="picture">
       <img src="<%=@user_2.photo()%>" alt="picture of user" />
       <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="attr" value="first_name">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="-2">
         <button type="submit" name="button">This Human</button>

@@ -1,19 +1,51 @@
 <div class="quiz-container">
-  <h2>Which person is doing C#?</h2>
-  <div class="quiz-pictures">
-    <div class="picture"></div>
-    <div class="picture"></div>
-  </div>
-  <form class="" action="/player/<%=@player.id%>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <input type="hidden" name="answer" value="-2">
-    <button type="submit" name="button">True</button>
-  </form>
+  <h2>Which person is doing <%=@user_1.track()%></h2>
+<%if @rand_num.even? %>
 
-  <form class="" action="/player/<%=@player.id%>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <input type="hidden" name="answer" value="+2">
-    <button type="submit" name="button">False</button>
-  </form>
+
+  <div class="quiz-pictures">
+    <div class="picture">
+      <img src="<%=@user_2.photo()%>" alt="picture of user" />
+      <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="answer" value="-2">
+        <button type="submit" name="button">This Human</button>
+      </form>
+    </div>
+    <div class="picture">
+      <img src="<%=@user_1.photo()%>" alt="picture of user" />
+      <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="answer" value="+2">
+        <button type="submit" name="button">This Human</button>
+      </form>
+    </div>
+  </div>
+
+
+<% else %>
+
+
+  <div class="quiz-pictures">
+    <div class="picture">
+      <img src="<%=@user_1.photo()%>" alt="picture of user" />
+      <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="answer" value="+2">
+        <button type="submit" name="button">This Human</button>
+      </form>
+    </div>
+    <div class="picture">
+      <img src="<%=@user_2.photo()%>" alt="picture of user" />
+      <form class="" action="/player/<%=@player.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="answer" value="-2">
+        <button type="submit" name="button">This Human</button>
+      </form>
+    </div>
+  </div>
+
+<% end %>
+
 </div>
 <h1>score <%=@player.score%></h1>
