@@ -25,7 +25,7 @@ get('/users/new') do
 end
 
 post('/users/create') do
-  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], photo: params['photo'])
+  User.create(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], temperature: params['temperature'], sleeping: params['sleeping'], photo: params['photo'])
   erb(:user_success)
 end
 
@@ -36,7 +36,7 @@ end
 
 patch('/user/:id') do
   @user = User.find(params['id'])
-  @user.update(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], photo: params['photo'])
+  @user.update(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], temperature: params['temperature'], sleeping: params['sleeping'], photo: params['photo'])
   redirect "user/#{@user.id}"
 end
 

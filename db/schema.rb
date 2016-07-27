@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20160727181830) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "pokemon"
     t.string   "sleeping"
     t.string   "temperature"
+    t.string   "pokemon"
   end
 
 end
