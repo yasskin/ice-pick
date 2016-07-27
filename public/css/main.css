@@ -147,6 +147,361 @@ select {
   letter-spacing: 1px;
   font-size: 1em; }
 
+.burger {
+  margin-top: 7%;
+  position: relative;
+  width: 497px;
+  height: 459px; }
+
+.burger-layers img {
+  position: absolute; }
+
+.burger-bite1, .burger-bite2, .burger-bite3, .burger-bite4, .burger-bite5, .burger-bite6 {
+  position: absolute;
+  border-radius: 50%;
+  background: snow;
+  opacity: 0; }
+
+.burger-bite1, .burger-bite2, .burger-bite3 {
+  animation: burgerBite 100s;
+  animation-delay: 3s; }
+
+.burger-bite4, .burger-bite5, .burger-bite6 {
+  animation: burgerBite 99s;
+  animation-delay: 4s; }
+
+.burger-bite1 {
+  top: -8%;
+  left: 50%;
+  width: 150px;
+  height: 150px; }
+
+.burger-bite2 {
+  top: -11%;
+  left: 59%;
+  width: 300px;
+  height: 300px; }
+
+.burger-bite3 {
+  top: 38%;
+  left: 83%;
+  width: 150px;
+  height: 150px; }
+
+.burger-bite4 {
+  top: -10%;
+  left: 32%;
+  width: 175px;
+  height: 175px; }
+
+.burger-bite5 {
+  top: -23%;
+  left: 42%;
+  width: 380px;
+  height: 380px; }
+
+.burger-bite6 {
+  top: 38%;
+  left: 80%;
+  width: 175px;
+  height: 175px; }
+
+@keyframes burgerBite {
+  100% {
+    opacity: 1; }
+  0.1% {
+    opacity: 1; }
+  0% {
+    opacity: 0; } }
+.toilet {
+  margin-top: 5%;
+  position: relative;
+  width: 281px;
+  height: 433px; }
+
+.toilet-bowl img {
+  position: absolute; }
+
+.toilet-flush img {
+  position: absolute;
+  top: 8%;
+  left: 3%;
+  -webkit-animation: flush 5s linear infinite;
+  -webkit-transform-origin: 80% 50% 0;
+  transform-origin: 80% 50% 0; }
+
+@-webkit-keyframes flush {
+  100% {
+    -webkit-transform: rotate(0deg); }
+  95% {
+    -webkit-transform: rotate(-23deg); }
+  5% {
+    -webkit-transform: rotate(-45deg); }
+  0% {
+    -webkit-transform: rotate(0deg); } }
+.bicycle {
+  margin-top: 5%;
+  width: 794px;
+  height: 451px;
+  position: relative; }
+
+.bicycle-frame {
+  width: 100%;
+  height: auto;
+  z-index: 500; }
+
+.bicycle-wheel-front {
+  width: 302px;
+  height: 302px;
+  position: absolute;
+  top: 33.5%;
+  left: 0%;
+  z-index: -9;
+  -webkit-animation: rotate 3s linear infinite; }
+
+.bicycle-crank {
+  width: 143px;
+  height: 143px;
+  position: absolute;
+  top: 54%;
+  left: 44.55%;
+  z-index: 501;
+  -webkit-animation: rotateCrank 2.5s linear infinite; }
+
+.bicycle-wheel-rear {
+  width: 302px;
+  height: 302px;
+  position: absolute;
+  top: 33.5%;
+  left: 62.5%;
+  z-index: -9;
+  -webkit-animation: rotate 3s linear infinite; }
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(-360deg); }
+  0% {
+    -webkit-transform: rotate(0deg); } }
+@-webkit-keyframes rotateCrank {
+  100% {
+    -webkit-transform: rotate(-720deg); }
+  0% {
+    -webkit-transform: rotate(0deg); } }
+.nametag-container {
+  margin-top: 5%;
+  position: relative;
+  margin: 10px auto;
+  width: 450px;
+  height: 322px;
+  z-index: 1; }
+
+.nametag-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-animation: cardFlip 2.5s linear infinite; }
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; }
+
+.face.back {
+  display: block;
+  transform: rotateX(180deg);
+  box-sizing: border-box; }
+
+@keyframes cardFlip {
+  100% {
+    -webkit-transform: rotateX(180deg); }
+  0% {
+    -webkit-transform: rotateX(0deg); } }
+.computer-container {
+  margin-top: 5%;
+  width: 1373px;
+  heigth: 362px;
+  position: relative; }
+
+.ruby, .c-sharp, .css, .android {
+  width: 128px;
+  height: 128px;
+  position: absolute; }
+
+.ruby {
+  top: 18%;
+  left: 32%;
+  -webkit-animation: rubyAnimation 3s linear infinite;
+  animation-delay: 0.5s; }
+
+.c-sharp {
+  top: 18%;
+  left: 79%;
+  -webkit-animation: csharpAnimation 3s linear infinite;
+  animation-delay: 0.5s; }
+
+.css {
+  bottom: 5.5%;
+  left: 7.5%;
+  -webkit-animation: cssAnimation 3s linear infinite;
+  animation-delay: 0.5s; }
+
+.android {
+  bottom: 10%;
+  left: 55.5%;
+  -webkit-animation: androidAnimation 3s linear infinite;
+  animation-delay: 0.5s; }
+
+@keyframes rubyAnimation {
+  20% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  50% {
+    left: 79%; }
+  100% {
+    left: 79%; }
+  0% {
+    left: 32%; } }
+@keyframes csharpAnimation {
+  20% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  50% {
+    left: 32%; }
+  100% {
+    left: 32%; }
+  0% {
+    left: 79%; } }
+@keyframes cssAnimation {
+  20% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  50% {
+    left: 55.5%; }
+  100% {
+    left: 55.5%; }
+  0% {
+    left: 7.5%; } }
+@keyframes androidAnimation {
+  20% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  50% {
+    left: 7.5%; }
+  100% {
+    left: 7.5%; }
+  0% {
+    left: 55.5%; } }
+/*=============== POKEMON ANIMATION ===============*/
+.pokemon {
+  margin: 10px auto;
+  width: 960px;
+  height: 500px; }
+
+.pokemon-roll {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+.pokemon-ball {
+  position: relative;
+  width: 480px;
+  height: 100%;
+  z-index: 1; }
+
+.pokemon-ball img#pokemon-ball {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  z-index: 550;
+  -webkit-animation: pokemonRoll 5s infinite;
+  -webkit-animation: pokemonRotate 5s infinite;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0; }
+
+.pokemon-ball img#pokemon-ball-red {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  z-index: 600;
+  opacity: 0;
+  -webkit-animation: pokemonRoll 5s infinite;
+  -webkit-animation: pokemonNo 5s infinite; }
+
+.pokemon-character {
+  position: relative;
+  width: 480px;
+  height: 100%;
+  z-index: 1; }
+
+.pokemon-character img#pokemon-character {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  z-index: 500; }
+
+.pokemon-character img#pokemon-character-tail {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  z-index: 450;
+  -webkit-animation: pokemonTail 2.5s infinite; }
+
+@keyframes pokemonNo {
+  100% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  70% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  40% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  20% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  0% {
+    opacity: 0; } }
+@keyframes pokemonRotate {
+  0% {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg); }
+  50% {
+    transform: rotate(325deg);
+    -webkit-transform: rotate(325deg); }
+  100% {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg); } }
+@keyframes pokemonRoll {
+  0% {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%); }
+  50% {
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%); }
+  100% {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%); } }
+@keyframes pokemonTail {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.125); }
+  100% {
+    transform: scale(1); } }
 h1 {
   font-size: 1.5em; }
 
