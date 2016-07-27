@@ -1,0 +1,8 @@
+<h1><%=@question.prompt%></h1>
+
+<a href="/questions/<%=@question.id()%>/edit">Edit</a>
+
+<form class="" action="/questions/<%=@question.id()%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" name="button">Delete</button>
+</form>

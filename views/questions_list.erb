@@ -1,0 +1,11 @@
+<h1>Questions</h1>
+
+<%@questions.each do |question|%>
+
+  <div class="row">
+    <a href="/questions/<%=question.id%>"><h1><%=question.prompt%></h1></a>
+  </div>
+
+<%end%>
+
+<a href="/questions/new"><h1>New Question</h1></a>

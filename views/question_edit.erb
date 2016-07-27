@@ -1,0 +1,9 @@
+<h1><%=@question.prompt%></h1>
+
+<form class="" action="/questions/<%=@question.id()%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="prompt" value="<%=@question.prompt()%>">
+  <input type="text" name="topic" value="<%=@question.topic()%>">
+  <input type="text" name="target" value="<%=@question.target()%>">
+  <button type="submit" name="button">Update Question</button>
+</form>

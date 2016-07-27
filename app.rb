@@ -3,11 +3,11 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file}
 
+enable :sessions
+
 get('/')do
   erb(:index)
 end
-
-#read
 
 get('/users') do
   @users = User.all()
@@ -19,8 +19,6 @@ get('/user/:id') do
   erb(:user_show)
 end
 
-#create
-
 get('/users/new') do
   erb(:user_new)
 end
@@ -30,7 +28,6 @@ post('/users/create') do
   erb(:user_success)
 end
 
-#edit
 get('/user/:id/edit') do
   @user = User.find(params['id'])
   erb(:user_edit)
@@ -42,39 +39,21 @@ patch('/user/:id') do
   redirect "user/#{@user.id}"
 end
 
-#delete
 delete('/user/:id') do
   @user = User.find(params['id']).destroy()
   redirect :users
 end
 
-## players
-
-# #get('/users') do
-#   erb(:users_list)
-# end
-#
-# get('/user/:id') do
-#   erb(:user_show)
-# end
-#
-# #create
-# get('/user/:id/new') do
-#   erb(:user_new)
-# end
-#
-  get('/players/new') do
-   erb(:players_new)
-  end
+get('/players/new') do
+ erb(:players_new)
+end
 
 post('/players/create') do
   @player = Player.create(player_name: params['player_name'], counter: 1, score: 0)
   redirect "players/#{@player.id}/quiz"
 end
 
-#
-#
-#
+
  patch('/player/:id') do
    @player = Player.find(params['id'])
    score = @player.score
@@ -85,6 +64,8 @@ end
 
    page_id = Random.rand(Question.count) + 1
 
+   session[:last_question] = params['last_question']
+
    if @player.counter > 6
      redirect "players/#{@player.id}/result"
    else
@@ -92,87 +73,28 @@ end
    end
  end
 
-#Quiz stuff
+ get('/players/:id/quiz') do
 
-get('/players/:id/quiz') do
+   @player = Player.find(params['id'])
+   @rand_num = Random.rand(20)
+   last_question_id = session[:last_question].to_i
 
-  @question = Question.all.sample()
-  topic = @question.topic()
+   while(!@user_2)
+     @question = Question.where.not(id: last_question_id).sample()
+     @topic = @question.topic()
+     @target = @question.target()
+     @users = User.all()
+      if (@topic == 'first_name')
+       @user_1 = @users.sample()
+       @user_2 = @users.where.not(first_name: @user_1.first_name).sample()
+      else
+       @user_1 = @users.where(@topic.to_sym => @target).sample()
+       @user_2 = @users.where.not(@topic.to_sym => @target).sample()
+      end
+   end
 
-  @random_users = User.all.order('random()')
-  @user_1 = @random_users.sample
-  @user_2 = @random_users.sample
-
-  while(@user_1 == @user_2 && @user_1.send(topic.to_sym) == @user_2.send(topic.to_sym))
-    @user_2 = @random_users.sample
-  end
-
-  @player = Player.find(params['id'])
-
-  @rand_num = Random.rand(20)
-  erb(:quiz)
-end
-
-# get('/players/:id/quiz_2') do
-#   @rand_num = Random.rand(20)
-#   @random_users = User.all.order('random()')
-#   @user_1 = @random_users.sample
-#   @user_2 = @random_users.sample
-#
-#   while(@user_1 == @user_2)
-#     @user_2 = @random_users.sample
-#   end
-#
-#   @player = Player.find(params['id'])
-#
-#   erb(:quiz_2)
-# end
-#
-# get('/players/:id/quiz_3') do
-#   @rand_num = Random.rand(20)
-#   @random_users = User.all.order('random()')
-#   @user_1 = @random_users.sample
-#   @user_2 = @random_users.sample
-#
-#   while(@user_1 == @user_2)
-#     @user_2 = @random_users.sample
-#   end
-#
-#   @player = Player.find(params['id'])
-#
-#   erb(:quiz_3)
-# end
-#
-# get('/players/:id/quiz_4') do
-#   @rand_num = Random.rand(20)
-#   @random_users = User.all.order('random()')
-#   @user_1 = @random_users.sample
-#   @user_2 = @random_users.sample
-#
-#   while(@user_1 == @user_2)
-#     @user_2 = @random_users.sample
-#   end
-#
-#   @player = Player.find(params['id'])
-#
-#   erb(:quiz_4)
-# end
-#
-# get('/players/:id/quiz_5') do
-#   @rand_num = Random.rand(20)
-#   @random_users = User.all.order('random()')
-#   @user_1 = @random_users.sample
-#   @user_2 = @random_users.sample
-#
-#   while(@user_1 == @user_2)
-#     @user_2 = @random_users.sample
-#   end
-#
-#   @player = Player.find(params['id'])
-#
-#   erb(:quiz_5)
-# end
-
+   erb(:quiz)
+ end
 
 get('/players/:id/result') do
   @player = Player.find(params['id'])
@@ -182,17 +104,66 @@ end
 post('/player/:id/reset') do
   @player = Player.find(params['id'])
   @player.update(counter: 1, score: 0)
-  redirect "players/#{@player.id}/quiz_1"
+  redirect "players/#{@player.id}/quiz"
 end
 
+#questions
 
+get('/questions') do
+  @questions = Question.all()
+  erb(:questions_list)
+end
 
+get('/questions/new') do
+  erb(:question_new)
+end
 
+post('/questions/create') do
+  @question = Question.create(prompt: params['prompt'], topic: params['topic'], target: params['target'])
+  redirect "/questions/#{@question.id}"
+end
 
-# 1 get two random users from db
+get('/questions/:id') do
+  @question = Question.find(params['id'])
+  erb(:question_show)
+end
+
+get('/questions/:id/edit') do
+  @question = Question.find(params['id'])
+  erb(:question_edit)
+end
+
+patch('/questions/:id') do
+  @question = Question.find(params['id'])
+  @question.update(prompt: params['prompt'], topic: params['topic'], target: params['target'])
+  redirect '/questions'
+end
+
+delete('/questions/:id') do
+  @question = Question.find(params['id']).destroy()
+  redirect '/questions'
+end
+
+# **************
 #
-# 2 inject info into erb
+# get('/players/:id/quiz') do
 #
-# 3 on submit update score and counter for player
+#   @player = Player.find(params['id'])
+#   @rand_num = Random.rand(20)
 #
-# 4 redirect / reload page with new records
+#   while(!@user_2)
+#     @question = Question.all.sample()
+#     @topic = @question.topic()
+#     @target = @question.target()
+#     @users = User.all()
+#      if (@topic == 'first_name')
+#       @user_1 = @users.sample()
+#       @user_2 = @users.where.not(first_name: => @user_1.first_name).sample()
+#      else
+#       @user_1 = @users.where(@topic.to_sym => @target).sample()
+#       @user_2 = @users.where.not(@topic.to_sym => @target).sample()
+#      end
+#   end
+#
+#   erb(:quiz)
+# end
