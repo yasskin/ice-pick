@@ -9,7 +9,6 @@ get('/')do
   erb(:index)
 end
 
-
 get('/users') do
   @users = User.all()
   erb(:users_list)
@@ -95,7 +94,7 @@ end
       end
    end
 
-   erb(:quiz)
+   erb(@topic.to_sym)
  end
 
 get('/players/:id/result') do
