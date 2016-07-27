@@ -1,0 +1,27 @@
+<div class="quiz-container">
+  <h2>Which person has been to 9th floor bathroom?</h2>
+  <div class="quiz-pictures">
+    <div class="picture"></div>
+    <div class="picture"></div>
+  </div>
+  <form class="" action="/player/<%=@player.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="answer" value="-2">
+    <button type="submit" name="button">True</button>
+  </form>
+
+  <form class="" action="/player/<%=@player.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="answer" value="+2">
+    <button type="submit" name="button">False</button>
+  </form>
+  <h1>score <%=@player.score%></h1>
+  <div class="toilet">
+    <div class="toilet-bowl">
+      <img src="/img/toilet-bowl.png" alt="toilet bowl"/>
+    </div>
+    <div class="toilet-flush">
+      <img src="/img/toilet-flusher.png" alt="toilet flusher"/>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ get('/')do
   erb(:index)
 end
 
+
 get('/users') do
   @users = User.all()
   erb(:users_list)
@@ -44,9 +45,10 @@ delete('/user/:id') do
   redirect :users
 end
 
-get('/players/new') do
- erb(:players_new)
-end
+  get('/players/new') do
+   erb(:players_new)
+  end
+
 
 post('/players/create') do
   @player = Player.create(player_name: params['player_name'], counter: 1, score: 0)
@@ -132,6 +134,7 @@ get('/questions/:id/edit') do
   @question = Question.find(params['id'])
   erb(:question_edit)
 end
+
 
 patch('/questions/:id') do
   @question = Question.find(params['id'])

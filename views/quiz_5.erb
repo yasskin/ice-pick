@@ -1,0 +1,31 @@
+<div class="quiz-container">
+  <h2>Which person plays Pokémon Go?</h2>
+  <div class="quiz-pictures">
+    <div class="picture"></div>
+    <div class="picture"></div>
+  </div>
+  <form class="" action="/player/<%=@player.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="answer" value="-2">
+    <button type="submit" name="button">True</button>
+  </form>
+
+  <form class="" action="/player/<%=@player.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="answer" value="+2">
+    <button type="submit" name="button">False</button>
+  </form>
+  <h1>score <%=@player.score%></h1>
+  <div class="pokemon">
+      <div class="pokemon-roll">
+        <div class="pokemon-ball">
+          <img id="pokemon-ball-red" src="/img/pokemon-ball-red-center.png" alt="pokemon red ball dot" />
+          <img id="pokemon-ball" src="/img/pokemon-ball-white.png" alt="pokemon ball" />
+        </div>
+        <div class="pokemon-character">
+          <img id="pokemon-character" src="/img/pokemon-character-without-tail.png" alt="pokemon character (without tail)" />
+          <img id="pokemon-character-tail" src="/img/pokemon-character-tail.png" alt="pokemon character tail" />
+        </div>
+      </div>
+    </div>
+</div>
