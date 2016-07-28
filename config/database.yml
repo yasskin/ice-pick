@@ -1,6 +1,9 @@
 development:
   adapter: postgresql
   database: ice_pick_development
+  username: [<%='placeholder'%>]
+  password: [<%='placeholder'%>]
+  host: localhost
 
 test:
   adapter: postgresql
