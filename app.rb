@@ -48,6 +48,17 @@ patch('/user/:id') do
   redirect "user/#{@user.id}"
 end
 
+get('/user/:id/edit_photo') do
+  @user = User.find(params['id'])
+  erb(:edit_photo)
+end
+
+patch('/user/:id/photo') do
+  @user = User.find(params['id'])
+  @user.update(photo: params['photo'])
+  redirect "user/#{@user.id}"
+end
+
 delete('/user/:id') do
   @user = User.find(params['id']).destroy()
   redirect :users
@@ -81,28 +92,31 @@ patch('/player/:id') do
   end
 end
 
+
 get('/players/:id/quiz') do
 
- @player = Player.find(params['id'])
- @rand_num = Random.rand(20)
- last_question_id = session[:last_question].to_i
+  @player = Player.find(params['id'])
+  @rand_num = Random.rand(20)
+  last_question_id = session[:last_question].to_i
 
- while(!@user_2 || !@user_1)
-   @question = Question.where.not(id: last_question_id).sample()
-   @topic = @question.topic()
-   @target = @question.target()
-   @users = User.all()
+  while(!@user_2 || !@user_1)
+    #@question = Question.where.not(id: last_question_id).sample()
+    @question = Question.all.sample()
+    @topic = @question.topic()
+    @target = @question.target()
+    @users = User.all()
     if (@topic == 'first_name')
-     @user_1 = @users.sample()
-     @user_2 = @users.where.not(first_name: @user_1.first_name).sample()
+      @user_1 = @users.sample()
+      @user_2 = @users.where.not(first_name: @user_1.first_name).sample()
     else
-     @user_1 = @users.where(@topic.to_sym => @target).sample()
-     @user_2 = @users.where.not(@topic.to_sym => @target).sample()
-   end
- end
+      @user_1 = @users.where(@topic.to_sym => @target).sample()
+      @user_2 = @users.where.not(@topic.to_sym => @target).sample()
+    end
+  end
 
   erb(@topic.to_sym)
 end
+
 
 get('/players/:id/result') do
   @player = Player.find(params['id'])

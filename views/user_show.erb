@@ -5,7 +5,13 @@
   <img src="<%=@user.photo%>" alt="picture of user" />
 
   <a href="/user/<%=@user.id%>/edit">Edit User</a>
+<br>
+  <a href="/user/<%=@user.id%>/edit_photo">Edit User Photo</a>
 
+<br>
+<a href="/users">View All Users</a>
+<br>
+<hr>
   <form class="delete" action="/user/<%=@user.id%>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" name="button">Delete User</button>
