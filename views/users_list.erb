@@ -1,5 +1,8 @@
 <h1>users list</h1>
-
-<% @users.each() do |user| %>
-  <h3><a href="/user/<%=user.id%>"><%=user.first_name%> <%=user.last_name%></a></h3>
-<%end%>
+<br>
+  <ul>
+    <% @users.each() do |user| %>
+    <li><a href="/user/<%=user.id%>"><%=user.first_name%> <%=user.last_name%></a></li>
+    <br>
+    <%end%>
+  </ul>
