@@ -58,6 +58,7 @@ table {
 body {
   width: 100vw;
   height: 100vh;
+  position: relative;
   display: flex;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: snow; }
@@ -153,40 +154,56 @@ select {
   outline: none; }
 
 .start-quiz-button, .next, .go-back {
-  width: 175px;
-  height: 50px;
   background-color: tomato;
   border: 1px solid tomato;
-  border-radius: 3px;
   color: #ffffff;
+  width: 175px;
+  height: 50px;
+  border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 1em;
   font-size: 1em; }
 
-.index-button-to-quiz {
+.index-button-to-quiz, .new-player {
   width: 175px;
   height: 50px;
-  background-color: #2E4057;
-  border: 1px solid #2E4057;
   border-radius: 3px;
-  color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 1em;
-  font-size: 1em; }
+  font-size: 1em;
+  background-color: #2E4057;
+  border: 1px solid #2E4057;
+  color: white; }
 
 .index-button-to-profile, .new-user-submit {
   width: 175px;
   height: 50px;
-  margin-top: 1em;
-  background-color: steelblue;
-  border: 1px solid steelblue;
   border-radius: 3px;
-  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 1em; }
+  margin-top: 1em;
+  font-size: 1em;
+  background-color: steelblue;
+  border: 1px solid steelblue;
+  color: #ffffff; }
+
+.new-player-input {
+  width: 175px;
+  height: 50px; }
+
+.this-human {
+  width: 175px;
+  height: 50px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1em;
+  font-size: 1em;
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  color: #888888; }
 
 .burger {
   margin-top: 7%;
@@ -640,10 +657,10 @@ h1 {
 .picture {
   width: 30em;
   height: 30em;
-  background: tomato;
   margin: 1%; }
   .picture img {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
 
 .quiz-container, .result-container {
   display: flex;
@@ -668,5 +685,23 @@ h1 {
   .result-container p {
     font-size: 1.5em;
     line-height: 2em; }
+
+.win {
+  z-index: 100000;
+  font-size: 4em;
+  color: #488B49;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%); }
+
+.lose {
+  z-index: 100000;
+  font-size: 4em;
+  color: red;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%); }
 
 /*# sourceMappingURL=main.css.map */

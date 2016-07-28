@@ -1,5 +1,5 @@
 <div class="quiz-container">
-  <h1><%=@topic%></h1>
+  <!-- <h1><%=@topic%></h1> -->
 
   <%if @question.topic == 'first_name'%>
     <h2><%= @question.prompt()%> <%=@user_1.first_name()%>?</h2>
@@ -19,7 +19,7 @@
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="-2">
-        <button type="submit" name="button">This Human</button>
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
@@ -28,7 +28,7 @@
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="+2">
-        <button type="submit" name="button">This Human</button>
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
@@ -44,7 +44,7 @@
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="+2">
-        <button type="submit" name="button">This Human</button>
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
@@ -53,7 +53,7 @@
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="-2">
-        <button type="submit" name="button">This Human</button>
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
