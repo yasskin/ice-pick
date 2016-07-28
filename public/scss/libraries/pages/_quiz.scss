@@ -3,6 +3,9 @@
   height: 30em;
   background: tomato;
   margin: 1%;
+  & img {
+    width: 100%;
+  }
 }
 
 .quiz-container, .result-container {
@@ -34,9 +37,3 @@
     line-height: 2em;
   }
 }
-
-// .container-for-bike {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// }

@@ -1,6 +1,4 @@
-
 require './lib/question'
-
 
 Question.create(prompt: 'Which person is ', topic: 'first_name', target: '')
 Question.create(prompt: 'Which person goes to food carts?', topic: 'lunch', target: 'carts')

@@ -8,6 +8,10 @@ private
     self.last_name().downcase!
     self.track().downcase!
     self.transportation().downcase!
+    self.lunch().downcase!
+    self.ninth_floor.downcase!
+    self.sleeping.downcase!
+    self.temperature.downcase!
+    self.pokemon.downcase!
   end
-
 end
