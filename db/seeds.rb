@@ -1,5 +1,5 @@
+require './lib/question'
 
-require './lib/Question'
 Question.create(prompt: 'Which person is ', topic: 'first_name', target: '')
 Question.create(prompt: 'Which person goes to food carts?', topic: 'lunch', target: 'carts')
 Question.create(prompt: 'Which person is doing C#?', topic: 'track', target: 'c#')
