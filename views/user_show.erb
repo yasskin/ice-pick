@@ -6,6 +6,9 @@
 
   <a href="/user/<%=@user.id%>/edit">Edit User</a>
 
+  <a href="/user/<%=@user.id%>/edit_photo">Edit User Photo</a>
+
+
   <form class="delete" action="/user/<%=@user.id%>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" name="button">Delete User</button>
