@@ -1,16 +1,13 @@
-<h1>user show</h1>
+<div class="container-user-show">
+  <h1>user show</h1>
+  <h6><%= @user.first_name %> <%= @user.last_name %></h6>
 
-<h6><%= @user.first_name %></h6>
-<br>
-<h6><%= @user.last_name %></h6>
+  <img src="<%=@user.photo%>" alt="picture of user" />
 
-<img src="<%=@user.photo%>" alt="picture of user" />
+  <a href="/user/<%=@user.id%>/edit">Edit User</a>
 
-<a href="/user/<%=@user.id%>/edit">Edit User</a>
-
-<form class="delete" action="/user/<%=@user.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button type="submit" name="button">Delete User</button>
-</form>
-
-<h1>Hello!!!!!!!!!!</h1>
+  <form class="delete" action="/user/<%=@user.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" name="button">Delete User</button>
+  </form>
+</div>
