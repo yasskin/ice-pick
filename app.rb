@@ -9,6 +9,10 @@ get('/')do
   erb(:index)
 end
 
+get('/admin')do
+  erb(:admin)
+end
+
 get('/users') do
   @users = User.all()
   erb(:users_list)
