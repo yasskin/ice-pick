@@ -9,25 +9,24 @@
     <h2><%= @question.prompt()%></h2>
   <%end%>
 
-
 <%if @rand_num.even? %>
 
   <div class="quiz-pictures">
     <div class="picture">
       <img src="<%=@user_2.photo()%>" alt="picture of user" />
-      <form class="" action="/player/<%=@player.id%>" method="post">
+      <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
+        <input type="hidden" name="answer" value="0">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
       <img src="<%=@user_1.photo()%>" alt="picture of user" />
-      <form class="" action="/player/<%=@player.id%>" method="post">
+      <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
+        <input type="hidden" name="answer" value="1">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
@@ -40,19 +39,19 @@
   <div class="quiz-pictures">
     <div class="picture">
       <img src="<%=@user_1.photo()%>" alt="picture of user" />
-      <form class="" action="/player/<%=@player.id%>" method="post">
+      <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
+        <input type="hidden" name="answer" value="1">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
       <img src="<%=@user_2.photo()%>" alt="picture of user" />
-      <form class="" action="/player/<%=@player.id%>" method="post">
+      <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
+        <input type="hidden" name="answer" value="0">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
@@ -60,5 +59,6 @@
 
 <% end %>
 
+<h1>Score: <%=@player.score%> out of: <%=@player.counter%> </h1>
+
 </div>
-<h1>score <%=@player.score%></h1>

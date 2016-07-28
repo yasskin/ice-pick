@@ -1,0 +1,18 @@
+
+<div class="profile-wrap">
+  <header>
+  </header>
+  <div class="profile-container">
+    <h1>Add Photo to a Profile</h1>
+    <form class="create-profile" action="/user/<%=@user.id%>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <div class="form-group">
+        <label for="photo">Photo</label>
+          <input type="text" name="photo" value="<%=@user.photo%>">
+        </select>
+      </div>
+      <button class="new-user-submit" type="submit" name="button">Submit</button>
+      <button class="go-back" type="button" name="button">Go back</button>
+    </form>
+  </div>
+</div>

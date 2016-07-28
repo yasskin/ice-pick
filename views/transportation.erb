@@ -18,7 +18,7 @@
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
+        <input type="hidden" name="answer" value="0">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
@@ -27,7 +27,7 @@
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
+        <input type="hidden" name="answer" value="1">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
@@ -43,7 +43,7 @@
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
+        <input type="hidden" name="answer" value="1">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
@@ -52,11 +52,12 @@
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
+        <input type="hidden" name="answer" value="0">
         <button type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
 
+  <h1>Score: <%=@player.score%> out of: <%=@player.counter%> </h1>
+
 <% end %>
-<h1>score <%=@player.score%></h1>
