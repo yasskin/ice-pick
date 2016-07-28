@@ -193,11 +193,11 @@ select {
 
 .burger-bite1, .burger-bite2, .burger-bite3 {
   animation: burgerBite 100s;
-  animation-delay: 3s; }
+  animation-delay: 2s; }
 
 .burger-bite4, .burger-bite5, .burger-bite6 {
   animation: burgerBite 99s;
-  animation-delay: 4s; }
+  animation-delay: 3s; }
 
 .burger-bite1 {
   top: -8%;
@@ -533,6 +533,7 @@ select {
     transform: scale(1); } }
 /*=============== SLEEP ANIMATION ===============*/
 .sleep-animation {
+  margin-top: 5%;
   width: 830px;
   height: 405px;
   position: relative; }
@@ -569,6 +570,7 @@ select {
     -webkit-transform: rotate(-1deg); } }
 /*=============== TEMPERATURE ANIMATION ===============*/
 .thermometer {
+  margin-top: 5%;
   width: 944px;
   height: 472px;
   position: relative; }
