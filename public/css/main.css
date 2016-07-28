@@ -681,6 +681,9 @@ h1 {
     width: 100%;
     height: auto; }
 
+.score {
+  margin-bottom: 5%; }
+
 .quiz-container, .result-container {
   display: flex;
   flex-direction: column;
