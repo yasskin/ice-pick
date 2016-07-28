@@ -6,3 +6,13 @@
   background-position: center;
   background-size: cover;
 }
+
+.index-container input {
+  @include form-styles();
+  background: lightgrey;
+  width: 175px;
+  height: 50px;
+  color: #2E4057;
+  font-size: 1em;
+  border-radius: 3px;
+}
