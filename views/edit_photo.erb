@@ -1,0 +1,11 @@
+<h1><%=@user.first_name%></h1>
+
+<form class="" action="/user/<%=@user.id%>/edit_photo" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="photo">Photo</label>
+    <input type="text" name="photo" value="<%=@user.photo%>">
+  </select>
+</div>
+<button class="new-user-submit" type="submit" name="button">Submit</button>
+</form>
