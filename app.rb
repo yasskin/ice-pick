@@ -96,11 +96,12 @@ get('/players/:id/quiz') do
   last_question_id = session[:last_question].to_i
 
   while(!@user_2 || !@user_1)
-    #@question = Question.where.not(id: last_question_id).sample()
-    @question = Question.all.sample()
+    @question = Question.where.not(id: last_question_id).sample()
+    # @question = Question.all.sample()
     @topic = @question.topic()
     @target = @question.target()
     @users = User.all()
+
     if (@topic == 'first_name')
       @user_1 = @users.sample()
       @user_2 = @users.where.not(first_name: @user_1.first_name).sample()
