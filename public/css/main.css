@@ -152,13 +152,25 @@ select {
   appearance: none;
   outline: none; }
 
-.index-button-to-quiz, .start-quiz-button, .next, .go-back {
+.start-quiz-button, .next, .go-back {
   width: 175px;
   height: 50px;
   background-color: tomato;
   border: 1px solid tomato;
   border-radius: 3px;
   color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1em;
+  font-size: 1em; }
+
+.index-button-to-quiz {
+  width: 175px;
+  height: 50px;
+  background-color: #2E4057;
+  border: 1px solid #2E4057;
+  border-radius: 3px;
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 1em;
@@ -615,7 +627,12 @@ select {
   100% {
     top: 0%; } }
 .index-container {
-  width: 100%; }
+  width: 100%;
+  height: auto;
+  background: url("/img/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
 
 h1 {
   font-size: 1.5em; }
