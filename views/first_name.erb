@@ -2,7 +2,7 @@
   <!-- <h1><%=@topic%></h1> -->
 
   <%if @question.topic == 'first_name'%>
-    <h2><%= @question.prompt()%> <%=@user_1.first_name()%>?</h2>
+    <h2><%= @question.prompt()%> <%=@user_1.first_name().capitalize()%>?</h2>
   <%elsif @question.topic == 'track'%>
     <h2><%= @question.prompt()%> <%=@user_1.track()%>?</h2>
   <%else%>
@@ -58,7 +58,7 @@
 
 <% end %>
 
-<h1 class="score">Score: <%=@player.score%> out of: <%=@player.counter%> </h1>
+<h1 class="score">Score: <%=@player.score%> out of <%=@player.counter%> </h1>
 
 <div class="nametag-container">
   <div class="nametag-card">

@@ -69,7 +69,7 @@ get('/players/new') do
 end
 
 post('/players/create') do
-  @player = Player.create(player_name: params['player_name'], counter: 1, score: 0)
+  @player = Player.create(player_name: params['player_name'], counter: 0, score: 0)
   redirect "players/#{@player.id}/quiz"
 end
 
@@ -85,7 +85,7 @@ patch('/player/:id') do
 
   session[:last_question] = params['last_question']
 
-  if @player.counter > 6
+  if @player.counter > 9
    redirect "players/#{@player.id}/result"
   else
    redirect "/players/#{@player.id}/quiz"
@@ -114,13 +114,13 @@ get('/players/:id/quiz') do
       @user_2 = @users.where.not(@topic.to_sym => @target).sample()
     end
   end
-
   erb(@topic.to_sym)
 end
 
 
 get('/players/:id/result') do
   @player = Player.find(params['id'])
+  @players = Player.all.order(score: :desc)
   erb(:result)
 end
 

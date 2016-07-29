@@ -12,7 +12,7 @@
   margin-bottom: 5%;
 }
 
-.quiz-container, .result-container {
+.quiz-container, .result-container, .result-list-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +24,11 @@
     padding: 3%;
     font-size: 1.5em;
   }
+}
+
+.result-wrap {
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .quiz-pictures {
@@ -60,4 +65,23 @@
   left: 50%;
   top: 20%;
   transform: translateX(-50%);
+}
+
+.score-heading {
+  margin-top: 3%;
+}
+
+.result-heading {
+  margin-bottom: 3%;
+}
+
+.result-list li {
+  padding: 2%;
+  text-align: center;
+  width: 500px;
+  font-size: 1.1em;
+}
+
+.result-list-container {
+  margin-top: 10%;
 }
