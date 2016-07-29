@@ -1,5 +1,6 @@
 require("bundler/setup")
 Bundler.require(:default)
+require("./config/environments.rb")
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file}
 
@@ -166,27 +167,3 @@ delete('/questions/:id') do
   @question = Question.find(params['id']).destroy()
   redirect '/questions'
 end
-
-# **************
-#
-# get('/players/:id/quiz') do
-#
-#   @player = Player.find(params['id'])
-#   @rand_num = Random.rand(20)
-#
-#   while(!@user_2)
-#     @question = Question.all.sample()
-#     @topic = @question.topic()
-#     @target = @question.target()
-#     @users = User.all()
-#      if (@topic == 'first_name')
-#       @user_1 = @users.sample()
-#       @user_2 = @users.where.not(first_name: => @user_1.first_name).sample()
-#      else
-#       @user_1 = @users.where(@topic.to_sym => @target).sample()
-#       @user_2 = @users.where.not(@topic.to_sym => @target).sample()
-#      end
-#   end
-#
-#   erb(:quiz)
-# end

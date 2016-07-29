@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   database: ice_pick_development
 
+
 test:
   adapter: postgresql
   database: ice_pick_test
