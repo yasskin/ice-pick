@@ -1,6 +1,6 @@
 // burger animation
 .burger {
-  margin-top: 7%;
+  margin-top: 13%;
   position: relative;
   width: 497px;
   height: 459px;
@@ -19,12 +19,12 @@
 
 .burger-bite1, .burger-bite2, .burger-bite3 {
   animation: burgerBite 100s;
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 
 .burger-bite4, .burger-bite5, .burger-bite6 {
   animation: burgerBite 99s;
-  animation-delay: 4s;
+  animation-delay: 3s;
 }
 
 .burger-bite1 {
@@ -389,6 +389,7 @@
 
 /*=============== SLEEP ANIMATION ===============*/
 .sleep-animation {
+  margin-top: 5%;
   width: 830px;
   height: 405px;
   position: relative;
@@ -427,6 +428,7 @@
 
 /*=============== TEMPERATURE ANIMATION ===============*/
 .thermometer {
+  margin-top: 5%;
   width: 944px;
   height: 472px;
   position: relative;

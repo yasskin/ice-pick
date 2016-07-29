@@ -12,3 +12,14 @@
   appearance: none;
   outline: none;
 }
+
+// button styles
+@mixin button-styles {
+  width: 175px;
+  height: 50px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1em;
+  font-size: 1em;
+}

@@ -1,5 +1,5 @@
 <div class="quiz-container">
-  <h1><%=@topic%></h1>
+  <!-- <h1><%=@topic%></h1> -->
 
   <%if @question.topic == 'first_name'%>
     <h2><%= @question.prompt()%> <%=@user_1.first_name()%>?</h2>
@@ -18,8 +18,8 @@
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="0">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
@@ -27,8 +27,8 @@
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="1">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
@@ -43,8 +43,8 @@
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="1">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
@@ -52,14 +52,16 @@
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="0">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
 
+
 <% end %>
-<h1>score <%=@player.score%></h1>
+<h1>Score: <%=@player.score%> out of: <%=@player.counter%> </h1>
+
 <div class="bicycle">
   <div class="bicycle-frame">
     <img src="/img/bike-frame.png" alt="bicycle frame"/>
@@ -73,4 +75,5 @@
   <div class="bicycle-wheel-rear">
     <img src="/img/bike-wheel-rear.png" alt="bicycle rear wheel"/>
   </div>
+</div>
 </div>

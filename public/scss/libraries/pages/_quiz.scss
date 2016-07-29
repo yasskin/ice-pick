@@ -1,11 +1,15 @@
 .picture {
   width: 30em;
   height: 30em;
-  background: tomato;
   margin: 1%;
   & img {
     width: 100%;
+    height: auto;
   }
+}
+
+.score {
+  margin-bottom: 5%;
 }
 
 .quiz-container, .result-container {
@@ -36,4 +40,24 @@
     font-size: 1.5em;
     line-height: 2em;
   }
+}
+
+.win {
+  z-index: 100000;
+  font-size: 4em;
+  color: #488B49;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+}
+
+.lose {
+  z-index: 100000;
+  font-size: 4em;
+  color: red;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
 }

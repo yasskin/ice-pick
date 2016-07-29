@@ -38,6 +38,11 @@ get('/user/:id/edit') do
   erb(:user_edit)
 end
 
+get('/user/:id/photo') do
+  @user = User.find(params['id'])
+  erb(:user_photo)
+end
+
 patch('/user/:id') do
   @user = User.find(params['id'])
   @user.update(first_name: params['first_name'], last_name: params['last_name'], track: params['track'], transportation: params['transportation'], lunch: params['lunch'], ninth_floor: params['ninth_floor'], pokemon: params['pokemon'], temperature: params['temperature'], sleeping: params['sleeping'], photo: params['photo'])
@@ -60,35 +65,34 @@ delete('/user/:id') do
   redirect :users
 end
 
-  get('/players/new') do
-   erb(:players_new)
-  end
-
+get('/players/new') do
+  erb(:players_new)
+end
 
 post('/players/create') do
   @player = Player.create(player_name: params['player_name'], counter: 1, score: 0)
   redirect "players/#{@player.id}/quiz"
 end
 
+patch('/player/:id') do
+  @player = Player.find(params['id'])
+  score = @player.score
+  counter = @player.counter
+  counter += 1
+  score += params['answer'].to_i
+  @player.update(score: score, counter: counter)
 
- patch('/player/:id') do
-   @player = Player.find(params['id'])
-   score = @player.score
-   counter = @player.counter
-   counter += 1
-   score += params['answer'].to_i
-   @player.update(score: score, counter: counter)
+  page_id = Random.rand(Question.count) + 1
 
-   page_id = Random.rand(Question.count) + 1
+  session[:last_question] = params['last_question']
 
-   session[:last_question] = params['last_question']
+  if @player.counter > 6
+   redirect "players/#{@player.id}/result"
+  else
+   redirect "/players/#{@player.id}/quiz"
+  end
+end
 
-   if @player.counter > 6
-     redirect "players/#{@player.id}/result"
-   else
-     redirect "/players/#{@player.id}/quiz"
-   end
- end
 
 get('/players/:id/quiz') do
 
@@ -114,6 +118,7 @@ get('/players/:id/quiz') do
 
   erb(@topic.to_sym)
 end
+
 
 get('/players/:id/result') do
   @player = Player.find(params['id'])
@@ -151,7 +156,6 @@ get('/questions/:id/edit') do
   @question = Question.find(params['id'])
   erb(:question_edit)
 end
-
 
 patch('/questions/:id') do
   @question = Question.find(params['id'])

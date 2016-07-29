@@ -1,5 +1,5 @@
 <div class="quiz-container">
-  <h1><%=@topic%></h1>
+  <!-- <h1><%=@topic%></h1> -->
 
   <%if @question.topic == 'first_name'%>
     <h2><%= @question.prompt()%> <%=@user_1.first_name()%>?</h2>
@@ -18,8 +18,8 @@
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="0">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
@@ -27,8 +27,8 @@
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="1">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
@@ -43,8 +43,8 @@
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="+2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="1">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
     <div class="picture">
@@ -52,27 +52,30 @@
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
-        <input type="hidden" name="answer" value="-2">
-        <button type="submit" name="button">This Human</button>
+        <input type="hidden" name="answer" value="0">
+        <button class="this-human" type="submit" name="button">This Human</button>
       </form>
     </div>
   </div>
 
 <% end %>
 
-</div>
-<h1>score <%=@player.score%></h1>
+<h1>Score: <%=@player.score%> out of: <%=@player.counter%> </h1>
+
 <div class="thermometer">
   <div class="thermometer-base">
-    <img src="img/temperature-thermometer-base.png" alt="Thermometer class" />
+    <img src="/img/temperature-thermometer-base.png" alt="Thermometer class" />
   </div>
   <div class="temp1">
-    <img src="img/temperature-thermometer-high-temp.png" alt="Temperature level high" />
+    <img src="/img/temperature-thermometer-high-temp.png" alt="Temperature level high" />
   </div>
   <div class="temp2">
-    <img src="img/temperature-thermometer-low-temp.png" alt="Temperature level low" />
+    <img src="/img/temperature-thermometer-low-temp.png" alt="Temperature level low" />
   </div>
   <div class="thermometer-lines">
-    <img src="img/temperature-thermometer-lines.png" alt="Thermometer lines" />
+    <img src="/img/temperature-thermometer-lines.png" alt="Thermometer lines" />
   </div>
 </div>
+</div>
+
+<!-- </div> -->

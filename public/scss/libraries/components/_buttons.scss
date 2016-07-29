@@ -1,25 +1,32 @@
-.index-button-to-quiz, .start-quiz-button, .next, .go-back {
-  width: 175px;
-  height: 50px;
+.start-quiz-button, .next, .go-back {
   background-color: tomato;
   border: 1px solid tomato;
-  border-radius: 3px;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 1em;
-  font-size: 1em;
+  @include button-styles();
+}
+
+.index-button-to-quiz, .new-player {
+  @include button-styles();
+  background-color: #2E4057;
+  border: 1px solid #2E4057;
+  color: white;
 }
 
 .index-button-to-profile, .new-user-submit {
-  width: 175px;
-  height: 50px;
-  margin-top: 1em;
+  @include button-styles();
   background-color: steelblue;
   border: 1px solid steelblue;
-  border-radius: 3px;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 1em;
+}
+
+.new-player-input {
+  width: 175px;
+  height: 50px;
+}
+
+.this-human {
+  @include button-styles();
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  color: #888888;
 }
