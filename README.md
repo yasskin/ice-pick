@@ -8,6 +8,8 @@
 
 _This is an Epicodus student group project creating an app that joins the styles of CSS with the databasing and dynamic functionality of Ruby. See specs below:_
 
+* _Live Webpage: <a href="https://boiling-bayou-89675.herokuapp.com/">boiling-bayou-89675.herokuapp.com//</a>_
+
 Project Requirements & Objectives  | Complete
 :------------- | :-------------: |
 *Project Team Members*: Marty Fitchen, Maarja Laineste, August von Trapp, Noah Yasskin | X
@@ -42,7 +44,8 @@ _If you run into any issues or have questions, ideas, or concerns, please feel f
 _To review this project, please visit the GitHub repository or the live webpage:_
 
 * _GitHub Repository: <a href="https://github.com/yasskin/ice-pick">github.com/yasskin/ice-pick</a>_
-* _Live Webpage: <a href="https://glacial-forest-75949.herokuapp.com/">glacial-forest-75949.herokuapp.com/</a>_
+
+* _Live Webpage: <a href="https://boiling-bayou-89675.herokuapp.com/">boiling-bayou-89675.herokuapp.com//</a>_
 
 ## Technologies Used
 
