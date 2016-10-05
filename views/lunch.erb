@@ -1,5 +1,6 @@
 <div class="quiz-container">
   <!-- <h1><%=@topic%></h1> -->
+  <h1>Score: <%=@player.score%> out of <%=@player.counter%> </h1>
 
   <%if @question.topic == 'first_name'%>
     <h2><%= @question.prompt()%> <%=@user_1.first_name()%>?</h2>
@@ -9,58 +10,54 @@
     <h2><%= @question.prompt()%></h2>
   <%end%>
 
-
 <%if @rand_num.even? %>
 
   <div class="quiz-pictures">
     <div class="picture">
-      <img src="<%=@user_2.photo()%>" alt="picture of user" />
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="0">
         <button class="this-human" type="submit" name="button">This Human</button>
       </form>
+      <img src="<%=@user_2.photo()%>" alt="picture of user" />
     </div>
     <div class="picture">
-      <img src="<%=@user_1.photo()%>" alt="picture of user" />
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="1">
         <button class="this-human" type="submit" name="button">This Human</button>
       </form>
+      <img src="<%=@user_1.photo()%>" alt="picture of user" />
     </div>
   </div>
 
-
 <% else %>
-
 
   <div class="quiz-pictures">
     <div class="picture">
-      <img src="<%=@user_1.photo()%>" alt="picture of user" />
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="1">
         <button class="this-human" type="submit" name="button">This Human</button>
       </form>
+      <img src="<%=@user_1.photo()%>" alt="picture of user" />
     </div>
     <div class="picture">
-      <img src="<%=@user_2.photo()%>" alt="picture of user" />
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="0">
         <button class="this-human" type="submit" name="button">This Human</button>
       </form>
+      <img src="<%=@user_2.photo()%>" alt="picture of user" />
     </div>
   </div>
 
 <% end %>
 
-<h1>Score: <%=@player.score%> out of <%=@player.counter%> </h1>
 <div class="burger">
   <div class="burger-layers">
     <img src="/img/burger.png" alt="burger... possibly vegan"/>

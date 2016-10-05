@@ -8,7 +8,7 @@
 
 _This is an Epicodus student group project creating an app that joins the styles of CSS with the databasing and dynamic functionality of Ruby. See specs below:_
 
-* _Live Webpage: <a href="https://boiling-bayou-89675.herokuapp.com/">boiling-bayou-89675.herokuapp.com//</a>_
+* _Live Webpage: <a href="https://boiling-bayou-89675.herokuapp.com/">boiling-bayou-89675.herokuapp.com/</a>_
 
 Project Requirements & Objectives  | Complete
 :------------- | :-------------: |
@@ -26,7 +26,25 @@ Project Requirements & Objectives  | Complete
 * _Establish an internet connection_
 * _Open a web browser_
 * _Visit web page_
+* _Live Webpage: <a href="https://boiling-bayou-89675.herokuapp.com/">boiling-bayou-89675.herokuapp.com//</a>_
 * _Play the game (over and over and over again)_
+
+* _For local setup_
+```
+$ postgres
+```
+```
+$ bundle install
+```
+```
+$ rake db:create
+```
+```
+$ rake db:migrate db:test:prepare
+```
+```
+$ ruby app.rb
+```
 
 ## Known Bugs
 
@@ -45,7 +63,6 @@ _To review this project, please visit the GitHub repository or the live webpage:
 
 * _GitHub Repository: <a href="https://github.com/yasskin/ice-pick">github.com/yasskin/ice-pick</a>_
 
-* _Live Webpage: <a href="https://boiling-bayou-89675.herokuapp.com/">boiling-bayou-89675.herokuapp.com//</a>_
 
 ## Technologies Used
 

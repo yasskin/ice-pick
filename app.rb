@@ -93,7 +93,6 @@ patch('/player/:id') do
   end
 end
 
-
 get('/players/:id/quiz') do
 
   @player = Player.find(params['id'])
@@ -117,7 +116,6 @@ get('/players/:id/quiz') do
   end
   erb(@topic.to_sym)
 end
-
 
 get('/players/:id/result') do
   @player = Player.find(params['id'])
