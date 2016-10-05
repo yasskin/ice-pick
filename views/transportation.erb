@@ -15,22 +15,22 @@
 
   <div class="quiz-pictures">
     <div class="picture">
-      <img src="<%=@user_2.photo()%>" alt="picture of user" />
       <form class="wrong" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="0">
         <button class="this-human" type="submit" name="button">This Human</button>
       </form>
+      <img src="<%=@user_2.photo()%>" alt="picture of user" />
     </div>
     <div class="picture">
-      <img src="<%=@user_1.photo()%>" alt="picture of user" />
       <form class="correct" action="/player/<%=@player.id%>" method="post">
         <input type="hidden" name="last_question" value="<%=@question.id%>">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="answer" value="1">
         <button class="this-human" type="submit" name="button">This Human</button>
       </form>
+      <img src="<%=@user_1.photo()%>" alt="picture of user" />
     </div>
   </div>
 

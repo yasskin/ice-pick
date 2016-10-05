@@ -202,7 +202,6 @@ select {
   border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 1em;
   font-size: 1em;
   padding: 2%;
   background-color: lightgray;
@@ -697,7 +696,7 @@ h1 {
   .quiz-container h2, .result-container h2, .result-list-container h2 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
-    padding: 3%;
+    /*padding: 3%;*/
     font-size: 1.5em; }
 
 .result-wrap {
@@ -709,7 +708,7 @@ h1 {
   justify-content: center; }
 
 .result-container {
-  padding: 3%; }
+  padding: 0.3%; }
   .result-container h1 {
     font-size: 2em; }
   .result-container p {
