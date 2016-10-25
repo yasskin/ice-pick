@@ -13,7 +13,7 @@ _This is an Epicodus student group project creating an app that joins the styles
 Project Requirements & Objectives  | Complete
 :------------- | :-------------: |
 *Project Team Members*: Marty Fitchen, Maarja Laineste, August von Trapp, Noah Yasskin | X
-*Project Name*: _**Ice Pick**_ ... We chose this project to create an Epicodus-specific game/app to get to know fellow Epicodus students better. | X
+*Project Name*: _**Ice Pick**_ ... We chose this project to create an Epicodus-specific game/app that helps users get to know fellow Epicodus students better. | X
 *Project Purpose*: We hope the game/app is a fun way to learn more about the goings on at Epicodus and some interesting facts about fellow students at Epicodus. | X
 *Project Process*: We worked very well together. Every morning we would have a stand up reviewing the previous day's work and discussing objectives for the day. Then after lunch we would quickly meet again to discuss must-haves to complete before the day's end. | X
 *Project Challenge*: One of the biggest challenges we faced was getting user data (i.e., Epicodus students to come take a picture and input their information) without divulging too much of what our project was to be. Surprisingly most people were happy to help and shared their curiosity. Another big challenge was getting the finished version of the app on Heroku, but August was able to crack it and push our game live. | X
@@ -62,7 +62,6 @@ _If you run into any issues or have questions, ideas, or concerns, please feel f
 _To review this project, please visit the GitHub repository or the live webpage:_
 
 * _GitHub Repository: <a href="https://github.com/yasskin/ice-pick">github.com/yasskin/ice-pick</a>_
-
 
 ## Technologies Used
 
